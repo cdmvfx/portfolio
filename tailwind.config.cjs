@@ -2,7 +2,18 @@
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+			animation: {
+				'emerald-gradient-bg': 'emerald-gradient-bg 15s ease infinite'
+			},
+			keyframes: {
+				'emerald-gradient-bg': {
+					'0%': { 'background-position': '0% 50%' },
+					'50%': { 'background-position': '100% 50%' },
+					'100%': {	'background-position': '0% 50%'}
+				}
+			}
+		},
 	},
 	plugins: [],
 }

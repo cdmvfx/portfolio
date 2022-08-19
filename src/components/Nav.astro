@@ -1,0 +1,54 @@
+---
+interface NavItem {
+	label: string;
+	path: string;
+}
+
+type NavProps = {
+	items: NavItem[];
+};
+
+const { items } = Astro.props as NavProps;
+---
+
+<div id="nav-items" class="flex flex-col gap-[1px]">
+	{
+		items.map((item, index) => (
+			<div key={`nav-item-${index}`} class="flex gap-[1px]">
+				<div class="w-[1px] bg-black h-[40px] mr-[1px]" />
+				<a
+					href={item.path}
+					class="
+							before:absolute
+							before:content-['']
+							before:bg-gradient-to-r
+							before:from-emerald-800
+							before:to-transparent
+							before:top-0
+							before:right-0
+							before:left-0
+							before:bottom-0
+							before:-z-10
+							before:opacity-0
+							before:hover:opacity-100
+							before:hover:border-l-2
+							before:hover:cursor-pointer
+							before:transition-all
+							before:duration-200
+							before:ease-in-out
+							block
+							z-10
+							relative
+							bg-gradient-to-r
+							from-black
+							to-transparent
+							w-full
+							px-4
+							py-2"
+				>
+					<span class="text-white z-50">{item.label}</span>
+				</a>
+			</div>
+		))
+	}
+</div>
