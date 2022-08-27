@@ -1,0 +1,97 @@
+---
+import { Icon } from 'astro-icon'
+
+const { heading, subheading, tags, photo, icon } = Astro.props;
+---
+
+<style>
+	.shape {
+		width: 200px;
+		height: 200px;
+		/* background-color: lightgray; */
+	}
+
+	.shape-tl {
+		float: left;
+		shape-outside: polygon(0 0, 100% 0, 0 100%);
+		clip-path: polygon(0 0, 100% 0, 0 100%);
+	}
+
+	.shape-tr {
+		float: right;
+		shape-outside: polygon(0 0, 100% 100%, 100% 0);
+		clip-path: polygon(0 0, 100% 100%, 100% 0);
+	}
+
+	.shape-bl {
+		float: left;
+		shape-outside: polygon(0 0, 100% 100%, 0 100%);
+		clip-path: polygon(0 0, 100% 100%, 0 100%);
+	}
+
+	.shape-br {
+		float: right;
+		shape-outside: polygon(100% 0, 100% 100%, 0 100%);
+		clip-path: polygon(100% 0, 100% 100%, 0 100%);
+	}
+</style>
+
+<div class='w-[565.7px] h-[565.7px] flex-shrink-0 flex justify-center items-center'>
+	<div
+		id="diamond"
+		style={`background: linear-gradient(to top right, #047857, rgba(0,0,0,0.8)), url(${photo}); background-size: cover; background-position: center; background-repeat: no-repeat;`}
+		class="rotate-45 transition w-[400px] h-[400px] outline outline-1 outline-emerald-300 outline-offset-2 bg-gradient-to-tr from-emerald-700 via-transparent flex justify-center items-center"
+	>
+		<div
+			id="diamond-content"
+			class="flex justify-center items-center w-[520px] h-full z-10"
+		>
+			<div
+				id="diamond-wrapper"
+				class="text-white h-full w-[520px] -rotate-45 flex flex-col justify-center"
+			>
+				<div
+					id="diamond-top"
+					class="flex items-end w-[400px] m-auto h-[250px] -mb-[20px]"
+				>
+					<div class="text-4xl font-thin">{heading}</div>
+				</div>
+				<div
+					id="diamond-separator"
+					class="h-[40px] w-[40px] bg-[#1c1c1c] rotate-45 outline outline-emerald-300 outline-1 outline-offset-2"
+				>
+					<div class="-rotate-45 relative">
+						<Icon name={icon} class="invert z-10 w-[40px] h-[40px] p-1" />
+						<div
+							class="h-[1px] w-[500px] ml-[50px] absolute bg-gradient-to-r from-emerald-300 top-1/2 -z-10"
+						>
+						</div>
+					</div>
+				</div>
+				<div id="diamond-bottom" class="h-[250px] -mt-[20px]">
+					<div class="shape shape-bl"></div>
+					<div class="shape shape-br"></div>
+					<div class="w-[400px] m-auto">
+						<p>{subheading}</p>
+					</div>
+					<div class="mt-4">
+						{tags.map((tag: string, index: number) => (
+							<div class="mt-2">
+								<div
+									class="inline-block rotate-45 w-[6px] h-[6px] bg-emerald-300 mr-2 relative"
+								>
+									<div
+										class="h-[1px] w-[100px] bg-gradient-to-r from-emerald-300 inline-block absolute -rotate-45 origin-top-left top-[5px]"
+									>
+									</div>
+									<div class="inline-block absolute -rotate-45 origin-top-left -top-6 whitespace-nowrap">{tag}</div>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		</div>
+		<slot name="background" />
+	</div>
+</div>

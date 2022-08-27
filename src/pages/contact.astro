@@ -1,0 +1,88 @@
+---
+import SidebarText from "../components/Elements/SidebarText.astro";
+import Hero from "../components/Hero.astro";
+import ContactForm from "../components/ContactForm.tsx";
+import MainHead from "../components/MainHead.astro";
+import { Icon } from 'astro-icon'
+import { Content as AboutMe } from "../content/about-me.md";
+
+const socialLinks = [
+	{
+		icon: 'fa:github',
+		url: 'https://github.com/cdmvfx',
+		label: 'Github'
+	},
+	{
+		icon: 'fa:linkedin',
+		url: 'https://www.linkedin.com/in/cdmontero/',
+		label: 'LinkedIn'
+	},
+	{
+		icon: 'fa:instagram',
+		url: 'https://instagram.com/cdmvfx',
+		label: 'Instagram'
+	}
+]
+
+---
+
+<html lang="en">
+	<head>
+		<MainHead />
+	</head>
+	<body>
+		<Hero pageTitle="Contact">
+			<div slot='side-content'>
+				<div class="text-emerald-100 text-md mb-2">Social Links</div>
+				<div
+					class="
+						before:absolute
+						before:content-['']
+						before:-top-[2px]
+						before:left-0
+						before:w-[4px]
+						before:h-[4px]
+						before:rounded-full
+						before:bg-white
+						after:absolute
+						after:content-['']
+						after:-top-[2px]
+						after:right-0
+						after:w-[4px]
+						after:h-[4px]
+						after:rounded-full
+						after:bg-white
+						relative
+						w-[100px]
+						h-[1px]
+						bg-white
+						-ml-2"
+				></div>
+				{
+					socialLinks.map((item: any, index: number) => (
+						<a href={item.url} target="_blank" class={`p-4 text-white transition-all hover:text-emerald-300 flex items-center gap-4 ${index !== (socialLinks.length - 1) ? "border-b" : ""} border-emerald-700`}>
+							<span class="text-3xl">
+								<Icon name={item.icon} class='w-[20px]' />
+							</span>{item.label}
+						</a>
+					))
+				}
+			</div>
+			<div slot="main-content" class="w-full h-full text-white">
+				<div class=" max-w-xl">
+					<h2 class="mt-0">Feel free to message me via any platform you prefer.</h2>
+					<p class="mb-0">I'll get back to you as soon as possible!</p>
+					<div class="flex">
+						<a href="tel:8134516954" class="flex items-center flex-1 py-4 transition-all hover:text-emerald-300" target="_blank" rel="noopener noreferrer">
+							<Icon name="mdi:phone" class='max-w-[20px] mr-2' /> (813)-451-6954
+						</a>
+						<a href="mailto:cdm.vfx@gmail.com" class="flex items-center flex-1 py-4 transition-all hover:text-emerald-300" target="_blank" rel="noopener noreferrer">
+							<Icon name="mdi:email" class='max-w-[20px] mr-2' /> cdm.vfx@gmail.com
+						</a>
+					</div>
+					<ContactForm client:load />
+				</div>
+			</div>
+		</Hero>
+	</body>
+</html>

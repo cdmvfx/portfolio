@@ -1,0 +1,34 @@
+---
+import SidebarText from "../components/Elements/SidebarText.astro";
+import Hero from "../components/Hero.astro";
+import MainHead from "../components/MainHead.astro";
+import { Icon } from 'astro-icon'
+import { Content as AboutMe } from "../content/about-me.md";
+
+---
+
+<html lang="en">
+	<head>
+		<MainHead />
+	</head>
+	<body>
+		<Hero pageTitle="About">
+			<SidebarText heading="Resume" slot="side-content">
+				
+			</SidebarText>
+			<div slot="main-content" class="pr-4 w-full h-full">
+				<div class="flex gap-8 px-4">
+					<div class='text-white project-details flex-1'>
+						<AboutMe />
+					</div>
+					<div>
+								<div class='mb-8 '>
+									<img src='/assets/profile_photo_2.png' alt='Profile photo' class="max-w-lg" />
+									<div class="text-white p-4  bg-[#1c1c1ce0]  w-full ">Text</div>
+								</div>
+					</div>
+				</div>
+			</div>
+		</Hero>
+	</body>
+</html>

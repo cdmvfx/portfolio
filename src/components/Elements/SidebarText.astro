@@ -1,0 +1,35 @@
+---
+const {heading, content} = Astro.props;
+---
+
+<div>
+	<div class="text-emerald-100 text-md mb-2">{heading}</div>
+	<div
+		class="
+			before:absolute
+			before:content-['']
+			before:-top-[2px]
+			before:left-0
+			before:w-[4px]
+			before:h-[4px]
+			before:rounded-full
+			before:bg-white
+			after:absolute
+			after:content-['']
+			after:-top-[2px]
+			after:right-0
+			after:w-[4px]
+			after:h-[4px]
+			after:rounded-full
+			after:bg-white
+			relative
+			w-[100px]
+			h-[1px]
+			bg-white
+			-ml-2
+			mb-2"
+	></div>
+		<div class="text-white">
+			<slot />
+		</div>
+</div>

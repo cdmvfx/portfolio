@@ -1,13 +1,119 @@
 ---
+import Diamond from "../../components/Elements/Diamond.astro";
+import SidebarText from "../../components/Elements/SidebarText.astro";
+import Hero from "../../components/Hero.astro";
 import MainHead from "../../components/MainHead.astro";
+import { Content as ProjectsDesc } from "../../content/projects-description.md";
 
+const projects = [
+	{
+		heading: "UNALTERED Services",
+		subheading:
+			"Collection of microservices including a Masterclass, Review Program, Surveys, and more.",
+		path: "/projects/unaltered-services",
+		icon: "unaltered",
+		photo: "/assets/masterclass.png",
+		stack: ["HTML / CSS", "JQuery", "PHP", "MySQL"],
+	},
+	{
+		heading: "UNALTERED Admin",
+		subheading:
+			"Shopify app dashboard for viewing sales analytics, logging product events, and managing microservices.",
+		path: "/projects/unaltered-admin",
+		icon: "unaltered",
+		photo: "/assets/unaltered_admin_1.png",
+		stack: ["React", "Shopify Polaris", "ExpressJS", "MongoDB"],
+	},
+	{
+		heading: "ReviewGet",
+		subheading:
+			"Web app integrated with Amazon for creating forms to incentivize product feedback.",
+		path: "/projects/reviewget",
+		icon: "reviewget",
+		photo: "/assets/reviewget.png",
+		stack: ["React", "ChakraUI", "NextJS", "MongoDB"],
+	},
+	{
+		heading: "Koncept Detailing",
+		subheading: "Static website for a local car detailing business.",
+		path: "/projects/koncept-detailing",
+		icon: "koncept_detailing",
+		photo: "/assets/koncept_1.png",
+		stack: ["React", "Tailwind", "NextJS"],
+	},
+	{
+		heading: "Portfolio",
+		subheading: "Personal projects portfolio.",
+		path: "/projects/portfolio",
+		icon: "cdmvfx",
+		photo: "",
+		stack: ["Astro", "Tailwind"],
+	},
+];
 ---
 
 <html lang="en">
 	<head>
-		<MainHead	/>
+		<MainHead />
+		<style is:global>
+			p {
+				margin-bottom: 10px;
+			}
+
+			.btn::before {
+				content: "";
+				width: 20px;
+				height: 20px;
+				background-color: #1c1c1c;
+			}
+
+			.btn {
+				padding: 10px 20px;
+				margin-top: 20px;
+			}
+
+			.projects-list {
+				scrollbar-width: thin;
+			}
+
+			.projects-list::-webkit-scrollbar {
+				width: 20px;
+			}
+
+			.projects-list::-webkit-scrollbar-track {
+				background-color: #1c1c1c;
+				border-radius: 100px;
+				margin-right: 20px;
+			}
+
+			.projects-list::-webkit-scrollbar-thumb {
+				border-radius: 100px;
+				background-image: linear-gradient(90deg, #36d07b 0%, #2bac90 99%);
+				box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+			}
+		</style>
 	</head>
 	<body>
-		Projects index
+		<Hero pageTitle="Projects">
+			<SidebarText heading="Projects" slot="side-content">
+				<ProjectsDesc />
+			</SidebarText>
+			<div slot="main-content" class="flex -mt-[70px] ml-[100px] scale-[75%] w-auto">
+				{
+					projects.map((project, index) => (
+						<a href={project.path} class={`${index % 2 === 0 ? "-ml-[270px]" : "-ml-[270px] mt-[295px]"} block transition hover:scale-110`}>
+							<Diamond
+								heading={project.heading}
+								subheading={project.subheading}
+								tags={project.stack}
+								photo={project.photo}
+								icon={project.icon}
+							>
+							</Diamond>
+						</a>
+					))
+				}
+			</div>
+		</Hero>
 	</body>
 </html>

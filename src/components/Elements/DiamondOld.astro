@@ -1,0 +1,27 @@
+---
+
+const {photo, size} = Astro.props
+
+let maxWidthAndHeight;
+
+switch (size) {
+	case "small":
+		maxWidthAndHeight = "w-[200px] h-[200px]";
+		break;
+	default:
+		maxWidthAndHeight = "w-[400px] h-[400px]"
+}
+
+---    
+
+<div class={`absolute  ${maxWidthAndHeight} block -rotate-45`}>
+	<img
+		src={photo}
+		class="absolute rotate-45 z-0 opacity-60"
+		alt=""
+	/>
+	<div
+		class="w-full h-full bg-gradient-to-br from-emerald-300 via-transparent outline outline-1 outline-emerald-100 outline-offset-2 opacity-40"
+	>
+	</div>
+</div>

@@ -1,0 +1,56 @@
+---
+interface TableItem {
+  icon?: string;
+  label: any;
+  value: any;
+}
+
+type TableProps = {
+  heading: string;
+  name: string;
+  items: TableItem[];
+};
+
+const {heading, name, items} = Astro.props as TableProps
+---
+
+<div>
+	<div class="text-emerald-100 text-md mb-2">Skills</div>
+	<div
+		class="
+			before:absolute
+			before:content-['']
+			before:-top-[2px]
+			before:left-0
+			before:w-[4px]
+			before:h-[4px]
+			before:rounded-full
+			before:bg-white
+			after:absolute
+			after:content-['']
+			after:-top-[2px]
+			after:right-0
+			after:w-[4px]
+			after:h-[4px]
+			after:rounded-full
+			after:bg-white
+			relative
+			w-[100px] 
+			h-[1px] 
+			bg-white 
+			-ml-2
+			mb-2"
+	></div>
+	<div>
+		<table class="w-full">
+			{items.map((item, index) => (
+				<tr key={`${name}-${index}`} class="odd:bg-emerald-900">
+					<td class="text-emerald-100 text-lg pl-4">{item.label}</td>
+					<td class="text-white text-lg text-right pr-12">
+						{item.value}
+					</td>
+				</tr>
+			))}
+		</table>
+	</div>
+</div>

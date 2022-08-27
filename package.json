@@ -1,5 +1,5 @@
 {
-  "name": "@example/portfolio",
+  "name": "@cdmvfx/portfolio",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "devDependencies": {
+    "@astrojs/image": "^0.3.6",
     "@astrojs/preact": "^1.0.2",
     "@astrojs/react": "^1.0.0",
     "@astrojs/tailwind": "^1.0.0",
@@ -20,6 +21,7 @@
     "sass": "^1.52.2"
   },
   "dependencies": {
+    "astro-icon": "^0.7.3",
     "preact": "^10.7.3"
   }
 }

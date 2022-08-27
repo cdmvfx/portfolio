@@ -2,31 +2,8 @@
 // Component Imports
 import MainHead from '../components/MainHead.astro';
 import Hero from '../components/Hero.astro';
-
-const pageTitle = "Home"
-
-const navItems = [
-	{
-		label: "Home",
-		path: "/"
-	},
-	{
-		label: "Projects",
-		path: "/projects"
-	},
-	{
-		label: "Resume",
-		path: "/resume"
-	},
-	{
-		label: "About",
-		path: "/about"
-	},
-	{
-		label: "Contact",
-		path: "/contact"
-	},
-];
+import Diamond from '../components/Elements/Diamond.astro';
+import SidebarTable from '../components/Elements/SidebarTable.astro';
 
 const skills = [
 	{
@@ -59,14 +36,6 @@ const skills = [
 	},
 ];
 
-const sideContent = [
-	{
-		type: "table",
-		heading: "Skills",
-		name: "skills",
-		content: skills
-	}
-]
 ---
 
 <html lang="en">
@@ -74,6 +43,18 @@ const sideContent = [
 		<MainHead	/>
 	</head>
 	<body>
-		<Hero pageTitle={pageTitle} navItems={navItems} sideContent={sideContent} />
+		<Hero pageTitle={'Home'}>
+			<SidebarTable slot='side-content' heading='Skills' name='skills' items={skills} />
+			<div slot='main-content' class='flex justify-center items-center w-full overflow-hidden h-full'>
+				<Diamond heading={'Carlos D. Montero'} subheading={'Full Stack Web Developer'} tags={['React', 'NodeJS', 'PHP']} icon="cdmvfx">
+					<img
+						slot='background'
+						src="/assets/profile_photo_2.png"
+						class="absolute -rotate-45 z-0 opacity-100"
+						alt=""
+					/>
+				</Diamond>
+			</div>
+		</Hero>
 	</body>
 </html>

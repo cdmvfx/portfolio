@@ -1,81 +1,177 @@
 ---
 import MainHead from "../components/MainHead.astro";
 import Hero from "../components/Hero.astro";
+import { Icon } from 'astro-icon'
 
-const pageTitle = "Home"
+const {frontmatter} = Astro.props
 
-const navItems = [
-	{
-		label: "Home",
-		path: "/"
+const stackIcons = {
+	react: {
+		icon: "mdi:react",
+		label: "React"
 	},
-	{
-		label: "Projects",
-		path: "/projects"
+	jquery: {
+		icon: "mdi:jquery",
+		label: "JQuery"
 	},
-	{
-		label: "Resume",
-		path: "/resume"
+	php: {
+		icon: "mdi:language-php",
+		label: "PHP"
 	},
-	{
-		label: "About",
-		path: "/about"
+	mongodb: {
+		icon: "simple-icons:mongodb",
+		label: "MongoDB"
 	},
-	{
-		label: "Contact",
-		path: "/contact"
+	mysql: {
+		icon: "simple-icons:mysql",
+		label: "MySQL"
 	},
-];
-
-const skills = [
-	{
-		label: "React",
-		value: "2 Years",
+	nodejs: {
+		icon: "fa-brands:node-js",
+		label: "NodeJS"
 	},
-	{
-		label: "TypeScript",
-		value: "2 Years",
+	tailwind: {
+		icon: "mdi:tailwind",
+		label: "TailwindCSS"
 	},
-	{
-		label: "JQuery",
-		value: "4 Years"
+	nextjs: {
+		icon: "file-icons:nextjs",
+		label: "NextJS"
 	},
-	{
-		label: "PHP",
-		value: "4 Years",
+	shopify: {
+		icon: "fa-brands:shopify",
+		label: "Shopify Polaris"
 	},
-	{
-		label: "Graphic Design",
-		value: "8 Years",
+	express: {
+		icon: "simple-icons:express",
+		label: "ExpressJS"
 	},
-	{
-		label: "Motion Graphics",
-		value: "8 Years",
+	vite: {
+		icon: "simple-icons:vite",
+		label: "Vite"
 	},
-	{
-		label: "Video Production",
-		value: "8 Years",
-	},
-];
-
-const sideContent = [
-	{
-		type: "table",
-		heading: "Skills",
-		name: "skills",
-		content: skills
+	typescript: {
+		icon: "mdi:language-typescript",
+		label: "TypeScript"
 	}
-]
+}
 
-const {content} = Astro.props
 ---
 
 <html lang="en">
 	<head>
-		<MainHead	/>
+		<MainHead title={frontmatter.title + ' - Carlos D. Montero'}	/>
+		<style is:global>
+
+			.project-details a {
+				color: rgb(129, 255, 183);
+				text-decoration: underline;
+			}
+
+			#content-ctn {
+				overflow-y: auto;
+			}
+
+			[astro-icon] {
+				width: 1em;
+			}
+
+			.projects-list {
+				scrollbar-width: thin;
+			}
+
+			.projects-list::-webkit-scrollbar {
+				width: 20px;
+			}
+
+			.projects-list::-webkit-scrollbar-track {
+				background-color: #1c1c1c;
+				border-radius: 100px;
+				margin-right: 20px;
+			}
+
+			.projects-list::-webkit-scrollbar-thumb {
+				border-radius: 100px;
+				background-image: linear-gradient(90deg, #36d07b 0%, #2bac90 99%);
+				box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+			}
+		</style>
 	</head>
 	<body>
-		{content}
-		<!-- <Hero pageTitle={pageTitle} navItems={navItems} sideContent={sideContent} /> -->
+		<Hero pageTitle={frontmatter.title}>
+			<div slot='side-content'>
+				<div class="text-emerald-100 text-md mb-2">Tech Stack</div>
+				<div
+					class="
+						before:absolute
+						before:content-['']
+						before:-top-[2px]
+						before:left-0
+						before:w-[4px]
+						before:h-[4px]
+						before:rounded-full
+						before:bg-white
+						after:absolute
+						after:content-['']
+						after:-top-[2px]
+						after:right-0
+						after:w-[4px]
+						after:h-[4px]
+						after:rounded-full
+						after:bg-white
+						relative
+						w-[100px]
+						h-[1px]
+						bg-white
+						-ml-2"
+				></div>
+				{
+					frontmatter.stack.map((item: "react" | "jquery" | "php" | "mongodb" | "mysql", index: number) => (
+						<div class={`p-4 text-white flex items-center gap-4 ${index !== (frontmatter.stack.length - 1) ? "border-b" : ""} border-emerald-700`}>
+							<span class="text-3xl">
+								<Icon name={stackIcons[item].icon} />
+							</span>{stackIcons[item].label}
+						</div>
+					))
+				}
+			</div>
+			<div slot='main-content'>
+				<div class="flex gap-8 px-4">
+					<div class='text-white project-details flex-1'>
+						<h1>{frontmatter.title}</h1>
+						<h3>for {frontmatter.client}</h3>
+						{
+							frontmatter.view &&
+							<a href={frontmatter.view} target="_blank" class='btn mr-4 tracking-widest text-xs text-white bg-emerald-600 outline outline-1 outline-emerald-400 outline-offset-1 px-2 py-2 inline-block transition hover:bg-emerald-500' style='color: white; text-decoration: none;'>
+								<div class="flex justify-center items-center gap-2">
+									<Icon name="carbon:view-filled" />
+									VIEW
+								</div>
+							</a>
+						}
+						{
+							frontmatter.code &&
+							<a href={frontmatter.code} target="_blank" class='btn tracking-widest text-xs text-white bg-emerald-600 outline outline-1 outline-emerald-400 outline-offset-1 px-2 py-2 inline-block transition hover:bg-emerald-500' style='color: white; text-decoration: none;'>
+								<div class="flex justify-center items-center gap-2">
+									<Icon name="carbon:code" />
+									CODE
+								</div>
+							</a>
+						}
+						<slot />
+					</div>
+					<div>
+						{
+							frontmatter.images.map((item: string, index: number) => (
+								<div class='mb-8 '>
+									<img src={item} alt={frontmatter.title} class="max-w-lg" />
+									<div class="text-white p-4  bg-[#1c1c1ce0]  w-full ">{frontmatter.captions[index]}</div>
+								</div>
+							))
+						}
+					</div>
+				</div>
+			</div>
+		</Hero>
 	</body>
 </html>
