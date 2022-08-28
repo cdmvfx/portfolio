@@ -3,7 +3,35 @@ import SidebarText from "../components/Elements/SidebarText.astro";
 import Hero from "../components/Hero.astro";
 import MainHead from "../components/MainHead.astro";
 import { Icon } from 'astro-icon'
-import { Content as AboutMe } from "../content/about-me.md";
+import * as AboutMe from "../content/about-me.md";
+
+const hobbies = [
+	{
+		label: "Coding",
+		icon: 'mdi:code'
+	},
+	{
+		label: "Fitness",
+		icon: 'fa-solid:dumbbell'
+	},
+	{
+		label: "Killua",
+		icon: 'fa-solid:dog'
+	},
+	{
+		label: "Gaming",
+		icon: 'maki:gaming'
+	},
+	{
+		label: "Videography",
+		icon: 'carbon:video-filled'
+	},
+	{
+		label: "Cooking",
+		icon: 'emojione-monotone:fork-and-knife'
+	},
+	
+]
 
 ---
 
@@ -13,19 +41,56 @@ import { Content as AboutMe } from "../content/about-me.md";
 	</head>
 	<body>
 		<Hero pageTitle="About">
-			<SidebarText heading="Resume" slot="side-content">
-				
-			</SidebarText>
+			<div slot='side-content'>
+				<div class="text-emerald-100 text-md mb-2">Hobbies</div>
+				<div
+					class="
+						before:absolute
+						before:content-['']
+						before:-top-[2px]
+						before:left-0
+						before:w-[4px]
+						before:h-[4px]
+						before:rounded-full
+						before:bg-white
+						after:absolute
+						after:content-['']
+						after:-top-[2px]
+						after:right-0
+						after:w-[4px]
+						after:h-[4px]
+						after:rounded-full
+						after:bg-white
+						relative
+						w-[100px]
+						h-[1px]
+						bg-white
+						-ml-2"
+				></div>
+				{
+					hobbies.map((item: any, index: number) => (
+						<div class={`p-4 text-white transition-all hover:text-emerald-300 flex items-center gap-4 ${index !== (hobbies.length - 1) ? "border-b" : ""} border-emerald-700`}>
+							<span class="text-3xl">
+								<Icon name={item.icon} class='w-[20px]' />
+							</span>{item.label}
+						</div>
+					))
+				}
+			</div>
 			<div slot="main-content" class="pr-4 w-full h-full">
-				<div class="flex gap-8 px-4">
+				<div class="flex flex-col xl:flex-row gap-8 px-4">
 					<div class='text-white project-details flex-1'>
-						<AboutMe />
+						<AboutMe.Content />
 					</div>
 					<div>
-								<div class='mb-8 '>
-									<img src='/assets/profile_photo_2.png' alt='Profile photo' class="max-w-lg" />
-									<div class="text-white p-4  bg-[#1c1c1ce0]  w-full ">Text</div>
-								</div>
+						{
+							['/assets/about_1.jpg'].map((item, index) => (
+							<div class='mb-8 '>
+								<img src={item} alt='Profile photo' class="xl:max-w-lg" />
+								<div class="text-white p-4  bg-[#1c1c1ce0]  w-full">Me, Kairy, and Killua!</div>
+							</div>
+							))
+						}
 					</div>
 				</div>
 			</div>

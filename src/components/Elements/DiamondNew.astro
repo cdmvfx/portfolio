@@ -6,6 +6,8 @@ const { heading, subheading, tags, photo, icon } = Astro.props;
 
 <style>
 	.shape {
+		width: 200px;
+		height: 200px;
 		/* background-color: lightgray; */
 	}
 
@@ -34,39 +36,42 @@ const { heading, subheading, tags, photo, icon } = Astro.props;
 	}
 </style>
 
-<div class='w-[300px] h-[300px] lg:w-[565.7px] lg:h-[565.7px] flex-shrink-0 flex justify-center items-center'>
+<div class='w-[300px] h-[300px] xl:w-[565.7px] xl:h-[565.7px] flex-shrink-0 flex justify-center items-center'>
 	<div
 		id="diamond"
 		style={`background: linear-gradient(to top right, #047857, rgba(0,0,0,0.8)), url(${photo}); background-size: cover; background-position: center; background-repeat: no-repeat;`}
-		class="rotate-45 transition w-[200px] h-[200px] lg:w-[400px] lg:h-[400px] outline outline-1 outline-emerald-300 outline-offset-2 bg-gradient-to-tr from-emerald-700 via-transparent flex justify-center items-center"
+		class="rotate-45 transition w-[200px] h-[200px] xl:w-[400px] xl:h-[400px] outline outline-1 outline-emerald-300 outline-offset-2 bg-gradient-to-tr from-emerald-700 via-transparent flex justify-center items-center"
 	>
 		<div
 			id="diamond-content"
-			class="flex justify-center items-center w-full h-full z-10"
+			class="flex justify-center items-center h-full z-10"
 		>
 			<div
 				id="diamond-wrapper"
-				class="text-white lg:h-full max-w-none w-[120%] lg:w-[520px] -rotate-45 flex flex-col justify-center"
+				class="text-white h-[250px] xl:h-full w-[250px] xl:w-[520px] -rotate-45 flex flex-col justify-center"
 			>
 				<div
 					id="diamond-top"
-					class="mx-auto flex items-end w-full lg:w-[120%] pl-4 lg:pl-0 h-[100px] lg:h-[250px] max-h-[100px]  -mb-[15px] lg:-mb-[20px]"
+					class="mx-auto flex items-end w-[200px] xl:w-[400px] h-[100px] xl:h-[250px] -mb-[15px] xl:-mb-[20px]"
 				>
-					<span class="text-lg drop-shadow-sm lg:text-4xl font-bold lg:font-thin">{heading}</span>
+					<div class="text-lg xl:text-4xl font-thin">{heading}</div>
 				</div>
 				<div
-					id="diamond-middle"
-					class="w-[30px] lg:w-[40px] h-[30px] lg:h-[40px] -ml-6 lg:-ml-14 bg-[#1c1c1c] rotate-45 outline outline-emerald-300 outline-1 outline-offset-2"
+					id="diamond-separator"
+					class="w-[30px] xl:w-[40px] h-[30px] xl:h-[40px] bg-[#1c1c1c] rotate-45 outline outline-emerald-300 outline-1 outline-offset-2"
 				>
-					<div id='diamond-icon-seperator' class="-rotate-45 relative">
-						<Icon name={icon} class="invert z-10 w-[30px] lg:w-[40px] h-[30px] lg:h-[40px] p-1" />
-						<div class="h-[1px] w-[150px] lg:w-[500px] ml-[40px] lg:ml-[50px] absolute bg-gradient-to-r from-emerald-300 top-1/2 -z-10" ></div>
+					<div class="-rotate-45 relative">
+						<Icon name={icon} class="invert z-10 w-[30px] xl:w-[40px] h-[30px] xl:h-[40px] p-1" />
+						<div
+							class="h-[1px] xl:w-[500px] ml-[70px] xl:ml-[50px] absolute bg-gradient-to-r from-emerald-300 top-1/2 -z-10"
+						>
+						</div>
 					</div>
 				</div>
-				<div id="diamond-bottom" class="w-full lg:w-[130%] lg:-ml-[15%] mx-auto h-[100px] lg:h-[250px] max-h-[100px] pt-1 lg:pt-0 -mt-[15px] lg:-mt-[20px]">
-					<div class="shape shape-bl w-[90px] lg:w-[220px] h-[90px] lg:h-[220px] "></div>
-					<div class="shape shape-br w-[90px] lg:w-[220px] h-[90px] lg:h-[220px] "></div>
-					<div class="w-full lg:w-[400px] m-auto text-xs lg:text-lg">
+				<div id="diamond-bottom" class="h-[100px] xl:h-[250px] -mt-[15px] xl:-mt-[20px]">
+					<div class="shape shape-bl"></div>
+					<div class="shape shape-br"></div>
+					<div class="w-[400px] m-auto text-xs xl:text-lg">
 						<p>{subheading}</p>
 					</div>
 					<div class="mt-4">

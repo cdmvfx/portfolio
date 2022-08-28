@@ -11,13 +11,13 @@ stack:
  - express
  - vite
  - mongodb
-captions: ['Product Manager - Sales Overview', 'Product Manager - Listing Updates', 'Product Research - Competitor Comparison', 'Surveys']
-images: ['/assets/unaltered_admin_1.png', '/assets/unaltered_admin_2.png', '/assets/unaltered_admin_3.png', '/assets/surveys.png']
+captions: ['Product Manager - Sales Overview', 'Product Manager - Listing Updates', 'Product Research - Competitor Comparison', 'Review Collection Form Submissions']
+images: ['/assets/unaltered_admin_1.png', '/assets/unaltered_admin_2.png', '/assets/unaltered_admin_3.png', '/assets/unaltered_admin_4.png']
 
 ---
 
 ## Overview
-UNALTERED Admin is a multi-dashboard custom built for the UNALTERED staff to view sales channel analytics, log key product events, perform product research, and manage the [UNALTERED Services](/projects/unaltered-services).
+UNALTERED Admin is a suite of dashboards and tools custom built for the UNALTERED staff to view sales channel analytics, log key product events, perform product research, and manage the [UNALTERED Services](/projects/unaltered-services).
 
 Developed as a private Shopify application, the project makes use of Shopify's API for authentication and authorization. This allows for gated permissions for the staff members that use the application.
 

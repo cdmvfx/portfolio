@@ -14,7 +14,7 @@ type TableProps = {
 const {heading, name, items} = Astro.props as TableProps
 ---
 
-<div>
+<div class="mb-4">
 	<div class="text-emerald-100 text-md mb-2">Skills</div>
 	<div
 		class="
@@ -39,14 +39,14 @@ const {heading, name, items} = Astro.props as TableProps
 			h-[1px] 
 			bg-white 
 			-ml-2
-			mb-2"
+			mb-4"
 	></div>
 	<div>
 		<table class="w-full">
 			{items.map((item, index) => (
 				<tr key={`${name}-${index}`} class="odd:bg-emerald-900">
 					<td class="text-emerald-100 text-lg pl-4">{item.label}</td>
-					<td class="text-white text-lg text-right pr-12">
+					<td class="text-white text-lg text-right pr-4">
 						{item.value}
 					</td>
 				</tr>

@@ -10,7 +10,6 @@ h1 {
 h2 {
 	font-size: 1.5em;
 	font-weight: bold;
-	margin-top: 1.5em;
 	margin-bottom: .5em;
 
 }
@@ -27,4 +26,9 @@ p + h3 {
 
 p {
 	margin-bottom: .8em;
+}
+
+.project-details a {
+	color: rgb(129, 255, 183);
+	text-decoration: underline;
 }

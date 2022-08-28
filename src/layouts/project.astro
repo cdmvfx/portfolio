@@ -34,6 +34,10 @@ const stackIcons = {
 		icon: "mdi:tailwind",
 		label: "TailwindCSS"
 	},
+	chakra: {
+		icon: "simple-icons:chakraui",
+		label: "ChakraUI"
+	},
 	nextjs: {
 		icon: "file-icons:nextjs",
 		label: "NextJS"
@@ -53,6 +57,10 @@ const stackIcons = {
 	typescript: {
 		icon: "mdi:language-typescript",
 		label: "TypeScript"
+	},
+	redux: {
+		icon: "simple-icons:redux",
+		label: "Redux"
 	}
 }
 
@@ -62,11 +70,6 @@ const stackIcons = {
 	<head>
 		<MainHead title={frontmatter.title + ' - Carlos D. Montero'}	/>
 		<style is:global>
-
-			.project-details a {
-				color: rgb(129, 255, 183);
-				text-decoration: underline;
-			}
 
 			#content-ctn {
 				overflow-y: auto;
@@ -136,10 +139,10 @@ const stackIcons = {
 				}
 			</div>
 			<div slot='main-content'>
-				<div class="flex gap-8 px-4">
+				<div class="flex flex-col xl:flex-row gap-8 px-4">
 					<div class='text-white project-details flex-1'>
 						<h1>{frontmatter.title}</h1>
-						<h3>for {frontmatter.client}</h3>
+						<h3>{frontmatter.client ? `for ${frontmatter.client}` : 'Personal Project'}</h3>
 						{
 							frontmatter.view &&
 							<a href={frontmatter.view} target="_blank" class='btn mr-4 tracking-widest text-xs text-white bg-emerald-600 outline outline-1 outline-emerald-400 outline-offset-1 px-2 py-2 inline-block transition hover:bg-emerald-500' style='color: white; text-decoration: none;'>
@@ -164,7 +167,7 @@ const stackIcons = {
 						{
 							frontmatter.images.map((item: string, index: number) => (
 								<div class='mb-8 '>
-									<img src={item} alt={frontmatter.title} class="max-w-lg" />
+									<img src={item} alt={frontmatter.title} class="xl:max-w-lg" />
 									<div class="text-white p-4  bg-[#1c1c1ce0]  w-full ">{frontmatter.captions[index]}</div>
 								</div>
 							))

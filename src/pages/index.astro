@@ -4,6 +4,9 @@ import MainHead from '../components/MainHead.astro';
 import Hero from '../components/Hero.astro';
 import Diamond from '../components/Elements/Diamond.astro';
 import SidebarTable from '../components/Elements/SidebarTable.astro';
+import Certificates from '../components/Certificates';
+import { Icon } from 'astro-icon'
+import DiamondNew from '../components/Elements/DiamondNew.astro';
 
 const skills = [
 	{
@@ -27,10 +30,6 @@ const skills = [
 		value: "8 Years",
 	},
 	{
-		label: "Motion Graphics",
-		value: "8 Years",
-	},
-	{
 		label: "Video Production",
 		value: "8 Years",
 	},
@@ -44,9 +43,41 @@ const skills = [
 	</head>
 	<body>
 		<Hero pageTitle={'Home'}>
-			<SidebarTable slot='side-content' heading='Skills' name='skills' items={skills} />
+			<div slot='side-content'>
+				<SidebarTable heading='Skills' name='skills' items={skills} />
+				<div>
+					<div class="text-emerald-100 text-md mb-2">Certifications</div>
+					<div
+						class="
+							before:absolute
+							before:content-['']
+							before:-top-[2px]
+							before:left-0
+							before:w-[4px]
+							before:h-[4px]
+							before:rounded-full
+							before:bg-white
+							after:absolute
+							after:content-['']
+							after:-top-[2px]
+							after:right-0
+							after:w-[4px]
+							after:h-[4px]
+							after:rounded-full
+							after:bg-white
+							relative
+							w-[100px] 
+							h-[1px] 
+							bg-white 
+							-ml-2"
+					></div>
+					<div class="text-white">
+						<Certificates client:load/>
+					</div>
+				</div>
+			</div>
 			<div slot='main-content' class='flex justify-center items-center w-full overflow-hidden h-full'>
-				<Diamond heading={'Carlos D. Montero'} subheading={'Full Stack Web Developer'} tags={['React', 'NodeJS', 'PHP']} icon="cdmvfx">
+				<Diamond heading={'Carlos D. Montero'} subheading={'Full Stack Web Developer'} tags={[]} icon="cdmvfx">
 					<img
 						slot='background'
 						src="/assets/profile_photo_2.png"
