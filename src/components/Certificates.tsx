@@ -1,8 +1,8 @@
 import Icon from "astro-icon";
 import { useState } from "react";
-import { TbBrandMeta } from "react-icons/tb";
-import { FaAngleUp, FaAngleDown } from "react-icons/fa";
-import { FiExternalLink } from "react-icons/fi";
+import { TbBrandMeta } from "react-icons/tb/index.js";
+import { FaAngleUp, FaAngleDown } from "react-icons/fa/index.js";
+import { FiExternalLink } from "react-icons/fi/index.js";
 
 interface Course {
   name: string;
