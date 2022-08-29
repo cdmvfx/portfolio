@@ -77,20 +77,14 @@ const hobbies = [
 					))
 				}
 			</div>
-			<div slot="main-content" class="pr-4 w-full h-full overflow-auto">
-				<div class="flex flex-col xl:flex-row gap-8 px-4">
+			<div slot="main-content" class="md:pr-4 w-full h-full overflow-auto">
+				<div class="flex flex-col xl:flex-row gap-8 px-4 w-full">
 					<div class='text-white project-details flex-1'>
 						<AboutMe.Content />
 					</div>
-					<div>
-						{
-							['/assets/about_1.jpg'].map((item, index) => (
-							<div class='mb-8 '>
-								<img src={item} alt='Profile photo' class="xl:max-w-lg" />
-								<div class="text-white p-4  bg-[#1c1c1ce0]  w-full">Me, Kairy, and Killua!</div>
-							</div>
-							))
-						}
+					<div class='mb-8 max-w-fit mx-auto'>
+						<img src='/assets/about_1.jpg' alt='Profile photo' class="xl:max-w-sm" />
+						<div class="text-white p-4 bg-[#1c1c1ce0] w-full">Me, Kairy, and Killua!</div>
 					</div>
 				</div>
 			</div>

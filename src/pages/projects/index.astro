@@ -106,10 +106,10 @@ const projects = [
 					))
 				}
 			</div>
-			<div slot="main-content" class="hidden lg:flex -mt-[50px] ml-[100px] scale-[75%] w-max">
+			<div slot="main-content" class="hidden lg:flex max-w-full max-h-full -ml-[150px] -mt-[50px] scale-[75%]">
 				{
 					projects.map((project, index) => (
-						<a href={project.path} class={`${index % 2 === 0 ? "-ml-[270px]" : "-ml-[270px] mt-[295px]"} block transition `}>
+						<a href={project.path} class={`${index % 2 === 0 && index !== 0 ? "-ml-[270px]" : ""} ${index % 2 !== 0 && index !== 0 ? "-ml-[270px] mt-[295px]" : ""} `}>
 							<Diamond
 								heading={project.heading}
 								subheading={project.subheading}

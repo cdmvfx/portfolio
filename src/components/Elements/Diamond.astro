@@ -38,7 +38,7 @@ const { heading = "NO HEADING", subheading = "NO SUBHEADING", tags = [], photo =
 	<div
 		id="diamond"
 		style={`background: linear-gradient(to top right, #047857, rgba(0,0,0,0.8)), url(${photo}); background-size: cover; background-position: center; background-repeat: no-repeat;`}
-		class="hover:scale-110 rotate-45 transition w-[200px] h-[200px] lg:w-[400px] lg:h-[400px] outline outline-1 outline-emerald-300 outline-offset-2 bg-gradient-to-tr from-emerald-700 via-transparent flex justify-center items-center"
+		class={` ${heading !== "Carlos D. Montero" ? "hover:scale-110" : ""} rotate-45 transition w-[200px] h-[200px] lg:w-[400px] lg:h-[400px] outline outline-1 outline-emerald-300 outline-offset-2 bg-gradient-to-tr from-emerald-700 via-transparent flex justify-center items-center`}
 	>
 		<div
 			id="diamond-content"
@@ -52,7 +52,7 @@ const { heading = "NO HEADING", subheading = "NO SUBHEADING", tags = [], photo =
 					id="diamond-top"
 					class="mx-auto flex items-end w-full lg:w-[120%] pl-4 lg:pl-0 h-[100px] lg:h-[250px] max-h-[100px]  -mb-[15px] lg:-mb-[20px]"
 				>
-					<span class="text-lg drop-shadow-sm lg:text-4xl font-bold lg:font-thin">{heading}</span>
+					<span class="text-lg drop-shadow-lg lg:text-4xl font-bold lg:font-thin">{heading}</span>
 				</div>
 				<div
 					id="diamond-middle"
