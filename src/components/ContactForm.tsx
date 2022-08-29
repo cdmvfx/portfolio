@@ -1,9 +1,6 @@
-import { Icon } from "astro-icon";
 import { MouseEventHandler, useState } from "react";
 
-type Props = {};
-
-const ContactForm = (props: Props) => {
+export default function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -120,5 +117,3 @@ const ContactForm = (props: Props) => {
     </div>
   );
 };
-
-export default ContactForm;

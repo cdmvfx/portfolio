@@ -1,4 +1,3 @@
-import Icon from "astro-icon";
 import { useState } from "react";
 import { TbBrandMeta } from "react-icons/tb/index.js";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa/index.js";
@@ -17,7 +16,7 @@ interface Certificate {
   courses: Course[];
 }
 
-const Certificates = () => {
+export default function Certificates() {
 
   const [activeCertificate, setActiveCertificate] = useState(-1);
 
@@ -78,7 +77,7 @@ const Certificates = () => {
   ];
 
   return certificates.map((certificate, index) => (
-    <div className="">
+    <div key={`certificate-${index}`} className="">
       <div
         className={`flex py-2 justify-between items-center transition-all hover:text-emerald-300 cursor-pointer `}
         onClick={() => handleCertificateChange(index)}
@@ -101,6 +100,7 @@ const Certificates = () => {
         {certificate.courses &&
           certificate.courses.map((course, courseIndex) => (
             <a
+							key={`certificate-${index}-course-${courseIndex}`} 
               href={course.url}
               target="_blank"
               className={`flex justify-between items-center p-4 ${
@@ -117,5 +117,3 @@ const Certificates = () => {
     </div>
   ));
 };
-
-export default Certificates;
