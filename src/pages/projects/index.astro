@@ -4,6 +4,7 @@ import SidebarText from "../../components/Elements/SidebarText.astro";
 import Hero from "../../components/Hero.astro";
 import MainHead from "../../components/MainHead.astro";
 import { Content as ProjectsDesc } from "../../content/projects-description.md";
+import { Icon } from 'astro-icon'
 
 const projects = [
 	{
@@ -67,29 +68,13 @@ const projects = [
 				background-color: #1c1c1c;
 			}
 
+			[astro-icon] {
+				color: white;
+			}
+
 			.btn {
 				padding: 10px 20px;
 				margin-top: 20px;
-			}
-
-			.projects-list {
-				scrollbar-width: thin;
-			}
-
-			.projects-list::-webkit-scrollbar {
-				width: 20px;
-			}
-
-			.projects-list::-webkit-scrollbar-track {
-				background-color: #1c1c1c;
-				border-radius: 100px;
-				margin-right: 20px;
-			}
-
-			.projects-list::-webkit-scrollbar-thumb {
-				border-radius: 100px;
-				background-image: linear-gradient(90deg, #36d07b 0%, #2bac90 99%);
-				box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
 			}
 		</style>
 	</head>
@@ -98,7 +83,30 @@ const projects = [
 			<SidebarText heading="Projects" slot="side-content">
 				<ProjectsDesc />
 			</SidebarText>
-			<div slot="main-content" class="flex -mt-[70px] ml-[100px] scale-[75%] w-auto">
+			<div slot="main-content" class="lg:hidden w-auto flex flex-col px-4 sm:px-0">
+				{
+					projects.map((project, index) => (
+						<a href={project.path} class={`flex items-center max-w-full justify-between py-4 sm:p-4 ${index !== projects.length - 1 ? "border-b" : ""} border-emerald-700`}>
+							<div class="flex gap-2 text-white">
+								<div class="flex p-2">
+									<div class="bg-[#1c1c1c] outline outline-1 outline-offset-2 outline-emerald-400 p-2 w-[50px] h-[50px] flex items-center rotate-45 scale-75 relative after:content-[''] after:h-[1px] after:w-[200px] after:-rotate-45 after:bg-gradient-to-r from-emerald-400 after:absolute after:-top-[72px] after:left-[22px]">
+										<Icon class='invert w-full -rotate-45' name={project.icon} />
+									</div>
+								</div>
+								<div class='flex flex-col gap-2'>
+									<div class="text-xl font-thin">{project.heading}</div>
+									<div class="text-sm">{project.subheading}</div>
+									<div class="flex flex-wrap text-xs gap-x-4 gap-y-2">{project.stack.map((item, index) => (<div>{item}</div>))}</div>
+								</div>
+							</div>
+							<div class="">
+								<Icon name="mdi:chevron-right" class='w-[30px] h-[30px]' />	
+							</div>
+						</a>
+					))
+				}
+			</div>
+			<div slot="main-content" class="hidden lg:flex -mt-[70px] ml-[100px] scale-[75%] w-auto">
 				{
 					projects.map((project, index) => (
 						<a href={project.path} class={`${index % 2 === 0 ? "-ml-[270px]" : "-ml-[270px] mt-[295px]"} block transition hover:scale-110`}>

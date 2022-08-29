@@ -31,7 +31,7 @@ const socialLinks = [
 		<MainHead />
 	</head>
 	<body>
-		<Hero pageTitle="Contact">
+		<Hero pageTitle="Contact" reverse={true}>
 			<div slot='side-content'>
 				<div class="text-emerald-100 text-md mb-2">Social Links</div>
 				<div
@@ -68,12 +68,12 @@ const socialLinks = [
 					))
 				}
 			</div>
-			<div slot="main-content" class="w-full h-full text-white">
+			<div slot="main-content" class="w-full h-full text-white mb-4">
 				<div class=" max-w-xl px-4">
 					<h2 class="mt-0">Feel free to message me any way you prefer.</h2>
 					<p class="mb-0">I'll get back to you as soon as possible!</p>
 					<div class="flex flex-col sm:flex-row">
-						<a href="tel:8134516954" class="flex items-center flex-1 py-2 sm:py-4 transition-all hover:text-emerald-300" target="_blank" rel="noopener noreferrer">
+						<a href="tel:8134516954" class="flex items-center flex-1 py-2 sm:py-4 mt-2 transition-all hover:text-emerald-300" target="_blank" rel="noopener noreferrer">
 							<Icon name="mdi:phone" class='max-w-[20px] mr-2' /> (813)-451-6954
 						</a>
 						<a href="mailto:cdm.vfx@gmail.com" class="flex items-center flex-1 py-2 mb-2 sm:py-4 transition-all hover:text-emerald-300" target="_blank" rel="noopener noreferrer">
