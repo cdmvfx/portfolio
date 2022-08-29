@@ -29,9 +29,9 @@ export default function MobileNav(){
 	];
 
 	return (
-		<div className='md:hidden'>
-			<div className='block w-[30px] z-50' onClick={() => setIsOpen(true)}><MdMenu /></div>
-			<div className={`${isOpen ? "opacity-100" : "opacity-0 -z-50"} transition-all duration-300 px-4 flex flex-col fixed w-full backdrop-brightness-50 backdrop-blur-md h-screen inset-0 z-20`}>
+		<div className='md:hidden relative'>
+			<div className='block w-[30px] relative' onClick={() => setIsOpen(true)}><MdMenu /></div>
+			<div className={`${isOpen ? "opacity-100 z-50" : "opacity-0 -z-50"}  transition-all duration-300 px-4 flex flex-col fixed w-full backdrop-brightness-50 backdrop-blur-md h-screen inset-0`}>
 				<div className="p-4 flex flex-row-reverse" onClick={() => setIsOpen(false)}><MdClose /></div>
 				{
 					navItems.map((item, index) => (
