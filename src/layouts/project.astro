@@ -71,17 +71,13 @@ const stackIcons = {
 		<MainHead title={frontmatter.title + ' - Carlos D. Montero'}	/>
 		<style is:global>
 
-			#content-ctn {
-				overflow-y: auto;
-			}
-
 			[astro-icon] {
 				width: 1em;
 			}
 		</style>
 	</head>
 	<body>
-		<Hero pageTitle={frontmatter.title} reverse={true}>
+		<Hero pageTitle='Project' reverse={true}>
 			<div slot='side-content'>
 				<div class="text-emerald-100 text-md mb-2">Tech Stack</div>
 				<div

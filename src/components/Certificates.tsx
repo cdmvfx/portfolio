@@ -77,7 +77,7 @@ export default function Certificates() {
   ];
 
   return certificates.map((certificate, index) => (
-    <div key={`certificate-${index}`} className="">
+    <div key={`certificate-${index}`} className="h-max">
       <div
         className={`flex py-2 justify-between items-center transition-all hover:text-emerald-300 cursor-pointer `}
         onClick={() => handleCertificateChange(index)}
@@ -95,7 +95,7 @@ export default function Certificates() {
       <div
         className={`transition-all ${
           activeCertificate === index ? "" : "max-h-0"
-        } overflow-hidden`}
+        } overflow-y-auto md:h-[100%]`}
       >
         {certificate.courses &&
           certificate.courses.map((course, courseIndex) => (

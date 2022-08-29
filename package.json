@@ -21,8 +21,10 @@
     "sass": "^1.52.2"
   },
   "dependencies": {
+    "@types/react-pdf": "^5.7.2",
     "astro-icon": "^0.7.3",
     "preact": "^10.7.3",
-    "react-icons": "^4.4.0"
+    "react-icons": "^4.4.0",
+    "react-pdf": "^5.7.2"
   }
 }
