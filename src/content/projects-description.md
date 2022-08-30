@@ -1,4 +1,4 @@
-Here you will find all the web development projects I have worked.
+Here you will find all the web development projects I have worked on.
 
 From videography to graphic design to web development, my skillset is deeply rooted in the creative field.
 

@@ -48,7 +48,7 @@ const projects = [
 		path: "/projects/portfolio",
 		icon: "cdmvfx",
 		photo: "",
-		stack: ["Astro", "Tailwind"],
+		stack: ["Astro", "Tailwind", "React"],
 	},
 ];
 ---
@@ -56,27 +56,6 @@ const projects = [
 <html lang="en">
 	<head>
 		<MainHead />
-		<style is:global>
-			p {
-				margin-bottom: 10px;
-			}
-
-			.btn::before {
-				content: "";
-				width: 20px;
-				height: 20px;
-				background-color: #1c1c1c;
-			}
-
-			[astro-icon] {
-				color: white;
-			}
-
-			.btn {
-				padding: 10px 20px;
-				margin-top: 20px;
-			}
-		</style>
 	</head>
 	<body>
 		<Hero pageTitle="Projects">
@@ -106,7 +85,7 @@ const projects = [
 					))
 				}
 			</div>
-			<div slot="main-content" class="hidden lg:flex max-w-full max-h-full -ml-[150px] -mt-[50px] scale-[75%]">
+			<div slot="main-content" class="hidden lg:flex max-w-full max-h-full -ml-[150px] -mt-[50px] scale-[70%]">
 				{
 					projects.map((project, index) => (
 						<a href={project.path} class={`${index % 2 === 0 && index !== 0 ? "-ml-[270px]" : ""} ${index % 2 !== 0 && index !== 0 ? "-ml-[270px] mt-[295px]" : ""} `}>

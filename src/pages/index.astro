@@ -76,19 +76,21 @@ const skills = [
 					</div>
 				</div>
 			</div>
-			<div slot='main-content' class='w-full h-full p-4 flex flex-col justify-center md:justify-start lg:justify-center items-center gap-4 overflow-x-hidden overflow-y-hidden'>
-				<Diamond heading={'Carlos D. Montero'} subheading={'Full Stack Web Developer'} tags={[]} icon="cdmvfx">
-					<img
-						slot='background'
-						src="/assets/profile_photo.webp"
-						class="absolute -rotate-45 z-0 opacity-100"
-						alt=""
-					/>
-				</Diamond>
-				<div class="text-white max-w-xl lg:max-w-6xl text-lg md:text-xl lg:text-2xl xl:text-2xl text-center font-thin">
-					Hi, my name is Carlos. I am a full stack web developer looking to improve my skillset in the complete development spectrum: everything from infrastructure to user experience.
+			<div slot='main-content' class='w-full min-h-full flex justify-center items-center md:items-start overflow-x-hidden overflow-y-hidden'>
+				<div class="flex flex-col justify-center items-center gap-8 py-8">
+					<Diamond heading={'Carlos D. Montero'} subheading={'Full Stack Web Developer'} tags={[]} icon="cdmvfx">
+						<img
+							slot='background'
+							src="/assets/profile_photo.webp"
+							class="absolute -rotate-45 z-0 opacity-100"
+							alt=""
+						/>
+					</Diamond>
+					<div class="text-white max-w-xl lg:max-w-6xl text-lg md:text-xl lg:text-2xl xl:text-2xl text-center font-thin">
+						Hi, my name is Carlos. I am a full stack web developer looking to improve my skillset in the complete development spectrum: everything from infrastructure to user experience.
+					</div>
+					<a class="btn tracking-widest text-sm text-white bg-emerald-600 outline outline-1 outline-emerald-400 outline-offset-1 px-2 py-2 inline-block transition hover:bg-emerald-500" href="/about">Read full bio</a>
 				</div>
-				<a class="btn tracking-widest text-sm text-white bg-emerald-600 outline outline-1 outline-emerald-400 outline-offset-1 px-2 py-2 inline-block transition hover:bg-emerald-500" href="/about">Read full bio</a>
 			</div>
 		</Hero>
 	</body>
