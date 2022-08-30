@@ -5,6 +5,8 @@ import Hero from "../../components/Hero.astro";
 import MainHead from "../../components/MainHead.astro";
 import { Content as ProjectsDesc } from "../../content/projects-description.md";
 import { Icon } from 'astro-icon'
+import DiamondNew from "../../components/Elements/DiamondNew.astro";
+import DiamondProject from "../../components/DiamondProject.astro";
 
 const projects = [
 	{
@@ -62,7 +64,7 @@ const projects = [
 			<div class='text-white' slot='side-content'>
 				<ProjectsDesc />
 			</div>
-			<div slot="main-content" class="lg:hidden w-auto flex flex-col px-4 sm:px-0">
+			<div slot="main-content" class="xl:hidden w-auto flex flex-col px-4 sm:px-0">
 				{
 					projects.map((project, index) => (
 						<a href={project.path} class={`flex items-center max-w-full justify-between py-4 sm:p-4 ${index !== projects.length - 1 ? "border-b" : ""} border-emerald-700`}>
@@ -85,21 +87,25 @@ const projects = [
 					))
 				}
 			</div>
-			<div slot="main-content" class="hidden lg:flex max-w-full max-h-full -ml-[150px] -mt-[50px] scale-[70%]">
-				{
-					projects.map((project, index) => (
-						<a href={project.path} class={`${index % 2 === 0 && index !== 0 ? "-ml-[270px]" : ""} ${index % 2 !== 0 && index !== 0 ? "-ml-[270px] mt-[295px]" : ""} `}>
-							<Diamond
-								heading={project.heading}
-								subheading={project.subheading}
-								tags={project.stack}
-								photo={project.photo}
-								icon={project.icon}
-							>
-							</Diamond>
-						</a>
-					))
-				}
+			<div slot="main-content" class="hidden xl:flex items-center justify-center w-full h-full">
+				<div class="flex">
+					{
+						projects.map((project, index) => (
+							<div class={`relative w-fit h-fit ${index % 2 === 0 && index !== 0 ? "-ml-[190px]" : ""} ${index % 2 !== 0 && index !== 0 ? "-ml-[190px] mt-[210px]" : ""}`}>
+								<div class="absolute w-[70%] h-[70%] top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] rotate-45 outline outline-1 outline-emerald-300 outline-offset-2"></div>
+								<DiamondProject
+									heading={project.heading}
+									subheading={project.subheading}
+									tags={project.stack}
+									photo={project.photo}
+									icon={project.icon}
+									path={project.path}
+								>
+								</DiamondProject>
+							</div>
+						))
+					}
+				</div>
 			</div>
 		</Hero>
 	</body>

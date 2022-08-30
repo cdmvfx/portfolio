@@ -1,18 +1,18 @@
 ---
 import { Icon } from 'astro-icon'
 
-const { heading = "", subheading = "", tags = [], photo = "", icon = "" } = Astro.props;
+const { heading = "", subheading = "", tags = [], photo = "", icon = "", path = "" } = Astro.props;
 
-const containerSize     = "w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] xl:w-[500px] xl:h-[500px]";
+const containerSize     = "w-[300px] h-[300px] lg:w-[400px] lg:h-[400px]";
 const gridRowSizes      = "grid-rows-[48%_4%_48%]";
-const iconContainerSize = "w-[30px] h-[30px] lg:w-[40px] lg:h-[40px] xl:w-[50px] xl:h-[50px]";
-const textPadding       = "pl-[18%] lg:pl-[15%]";
-const headingText       = "text-lg lg:text-2xl xl:text-4xl font-bold -mb-1 lg:-mb-2";
+const iconContainerSize = "w-[30px] h-[30px] lg:w-[40px] lg:h-[40px]";
+const textPadding       = "pl-[18%] pr-[5%] lg:pl-[15%]";
+const headingText       = "text-lg lg:text-2xl font-bold -mb-1 lg:-mb-2";
 const subheadingText    = "text-sm lg:text-md lg:pl-1 -mt-1 lg:-mt-2";
 ---
 
-<div class={`${containerSize} relative text-white`}>
-	<div class={`h-full grid ${gridRowSizes} relative z-50 px-[6%]`}>
+<a href={path} class={`${containerSize} block w-fit h-fit relative text-white transition-all hover:scale-110`} style="clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);">
+	<div class={`h-full grid ${gridRowSizes} relative z-40 px-[6%]`} >
 		<div class={`flex items-end ${textPadding} ${headingText} drop-shadow-[2px_2px_5px_#000] shadow-black`}>{heading}</div>
 		<div class="flex items-center">
 			<div class={`${iconContainerSize} rotate-45 bg-[#1c1c1c]  outline outline-emerald-300 outline-1 outline-offset-2`}>
@@ -25,9 +25,9 @@ const subheadingText    = "text-sm lg:text-md lg:pl-1 -mt-1 lg:-mt-2";
 				<div class="shape shape-bl w-[90px] lg:w-[200px] h-[90px] lg:h-[200px] "></div>
 			</div>
 			<div class={`drop-shadow-[2px_2px_5px_#000] shadow-black mb-2 ${subheadingText}`}>{subheading}</div>
-			<div class={``}>
+			<div class={`text-xs`}>
 				{tags.map((tag: string, index: number) => (
-				<div>
+				<div class="">
 					<div class={`inline-block`}>
 						<div>{tag}</div>
 						<div class={`flex items-center -ml-2 -mt-1`}>
@@ -40,13 +40,13 @@ const subheadingText    = "text-sm lg:text-md lg:pl-1 -mt-1 lg:-mt-2";
 			</div>
 		</div>
 	</div>
-	<div 
-		class={`w-[70%] h-[70%] rotate-45 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]  outline outline-1 outline-emerald-300 outline-offset-2`}
+	<div
+		class={`w-[70%] h-[70%] rotate-45 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]`}
 		style={`background: linear-gradient(to top right, #047857, rgba(0,0,0,0.8)), url(${photo}); background-size: cover; background-position: center; background-repeat: no-repeat;`}
 	></div>
 	<slot name="background" />
 	
-</div>
+</a>
 
 <style>
 	.shape {

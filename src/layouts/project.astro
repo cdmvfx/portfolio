@@ -144,10 +144,10 @@ const stackIcons = {
 					<div>
 						{
 							frontmatter.images.map((item: string, index: number) => (
-								<div class='mb-8 '>
+								<a class='mb-8 block' target="_blank" href={item}>
 									<img src={item} alt={frontmatter.title} class="xl:max-w-lg" />
 									<div class="text-white p-4  bg-[#1c1c1ce0]  w-full ">{frontmatter.captions[index]}</div>
-								</div>
+								</a>
 							))
 						}
 					</div>
