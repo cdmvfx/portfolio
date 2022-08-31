@@ -8,8 +8,8 @@ stack:
 view: https://www.youtube.com/playlist?list=PLWNFZ4KwDosKJFzsc7YaEjN8BpgKNIhsM
 captions: ['Main Render', 'Product Page Image - Benefits', 'Label Design', 'Box Design' ]
 images: []
-videos: ['P6-sIoE1X6A']
-video_captions: ['UFM 14 - How To Stay Fit Year Round']
+videos: ['P6-sIoE1X6A', 'nH5dRQoe1MY']
+video_captions: ['UFM 14 - How To Stay Fit Year Round', 'UFM 36 - Functional Fitness']
 
 ---
 
