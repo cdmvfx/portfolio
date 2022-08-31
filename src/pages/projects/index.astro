@@ -45,12 +45,22 @@ const projects = [
 		stack: ["React", "Tailwind", "NextJS"],
 	},
 	{
-		heading: "Portfolio",
-		subheading: "Personal projects portfolio.",
-		path: "/projects/portfolio",
-		icon: "cdmvfx",
-		photo: "",
-		stack: ["Astro", "Tailwind", "React"],
+		heading: "Hormone Balance",
+		subheading: "Product branding for a nutritional supplement.",
+		path: "/projects/hormone-balance",
+		icon: "unaltered",
+		photo: "/assets/hormone_1.png",
+		stack: ["Illustrator", "Photoshop", "Cinema 4D"],
+		type: "other"
+	},
+	{
+		heading: "UNALTERED Fitness Minute",
+		subheading: "Series of educational videos produced for social media.",
+		path: "/projects/unaltered-fitness-minute",
+		icon: "unaltered",
+		photo: "/assets/ufm_1.png",
+		stack: ["Premiere Pro", "After Effects"],
+		type: "other"
 	},
 ];
 ---
@@ -100,6 +110,7 @@ const projects = [
 									photo={project.photo}
 									icon={project.icon}
 									path={project.path}
+									type={project.type}
 								>
 								</DiamondProject>
 							</div>

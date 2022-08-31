@@ -1,7 +1,7 @@
 ---
 import { Icon } from 'astro-icon'
 
-const { heading = "", subheading = "", tags = [], photo = "", icon = "", path = "" } = Astro.props;
+const { heading = "", subheading = "", tags = [], photo = "", icon = "", path = "", type = "" } = Astro.props;
 
 const containerSize     = "w-[300px] h-[300px] lg:w-[400px] lg:h-[400px]";
 const gridRowSizes      = "grid-rows-[48%_4%_48%]";
@@ -18,13 +18,13 @@ const subheadingText    = "text-sm lg:text-md lg:pl-1 -mt-1 lg:-mt-2";
 			<div class={`${iconContainerSize} rotate-45 bg-[#1c1c1c]  outline outline-emerald-300 outline-1 outline-offset-2`}>
 				<Icon name={icon} class="fill-white -rotate-45 w-full h-full p-1"/>
 			</div>
-			<div class={`bg-gradient-to-r from-emerald-300 h-[1px] ml-2 flex-grow`}></div>
+			<div class={`bg-gradient-to-r from-emerald-300 h-[1px] ml-3 flex-grow`}></div>
 		</div>
 		<div class={`${textPadding}`}>
 			<div class="w-[110%] -ml-[10%]">
 				<div class="shape shape-bl w-[90px] lg:w-[200px] h-[90px] lg:h-[200px] "></div>
 			</div>
-			<div class={`drop-shadow-[2px_2px_5px_#000] shadow-black mb-2 ${subheadingText}`}>{subheading}</div>
+			<div class={`drop-shadow-[2px_2px_5px_#000] shadow-[#343434] mb-2 ${subheadingText}`}>{subheading}</div>
 			<div class={`text-xs`}>
 				{tags.map((tag: string, index: number) => (
 				<div class="">
@@ -41,8 +41,8 @@ const subheadingText    = "text-sm lg:text-md lg:pl-1 -mt-1 lg:-mt-2";
 		</div>
 	</div>
 	<div
-		class={`w-[70%] h-[70%] rotate-45 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]`}
-		style={`background: linear-gradient(to top right, #047857, rgba(0,0,0,0.8)), url(${photo}); background-size: cover; background-position: center; background-repeat: no-repeat;`}
+		class={`w-[70%] h-[70%] rotate-45 absolute top-[50%] left-[50%] -translate-x-[50%] bg-[#047478] -translate-y-[50%]`}
+		style={`background: linear-gradient(to top right, ${type === 'other' ? "#047478" : "#047857"}, rgba(0,0,0,0.8)), url(${photo}); background-size: cover; background-position: center; background-repeat: no-repeat;`}
 	></div>
 	<slot name="background" />
 	

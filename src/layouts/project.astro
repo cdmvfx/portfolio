@@ -61,6 +61,30 @@ const stackIcons = {
 	redux: {
 		icon: "simple-icons:redux",
 		label: "Redux"
+	},
+	astro: {
+		icon: "simple-icons:astro",
+		label: "Astro"
+	},
+	illustrator: {
+		icon: "simple-icons:adobeillustrator",
+		label: "Illustrator"
+	},
+	photoshop: {
+		icon: "simple-icons:adobephotoshop",
+		label: "Photoshop"
+	},
+	cinema4d: {
+		icon: "simple-icons:cinema4d",
+		label: "Cinema 4D"
+	},
+	premierepro: {
+		icon: "simple-icons:adobepremierepro",
+		label: "Premiere Pro"
+	},
+	aftereffects: {
+		icon: "simple-icons:adobeaftereffects",
+		label: "After Effects"
 	}
 }
 
@@ -141,7 +165,7 @@ const stackIcons = {
 						</div>
 						<slot />
 					</div>
-					<div>
+					<div class="w-full max-w-lg">
 						{
 							frontmatter.images.map((item: string, index: number) => (
 								<a class='mb-8 block' target="_blank" href={item}>
@@ -149,6 +173,13 @@ const stackIcons = {
 									<div class="text-white p-4  bg-[#1c1c1ce0]  w-full ">{frontmatter.captions[index]}</div>
 								</a>
 							))
+						}
+						{
+							frontmatter.video_id && 
+							<div class="mb-4 xl:max-w-lg w-full">
+								<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src={`https://www.youtube.com/embed/${frontmatter.video_id}`} frameborder='0' allowfullscreen></iframe></div>
+								<div class="text-white p-4  bg-[#1c1c1ce0]  w-full ">{frontmatter.video_caption}</div>
+							</div>
 						}
 					</div>
 				</div>
