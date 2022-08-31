@@ -2,37 +2,27 @@
 // Component Imports
 import MainHead from '../components/MainHead.astro';
 import Hero from '../components/Hero.astro';
-import Diamond from '../components/Elements/Diamond.astro';
-import SidebarTable from '../components/Elements/SidebarTable.astro';
 import Certificates from '../components/Certificates';
-import { Icon } from 'astro-icon'
 import DiamondNew from '../components/Elements/DiamondNew.astro';
+import SidebarHeading from '../components/Elements/SidebarHeading.astro';
 
 const skills = [
-	{
-		label: "React",
-		value: "2 Years",
-	},
-	{
-		label: "TypeScript",
-		value: "2 Years",
-	},
-	{
-		label: "JQuery",
-		value: "4 Years"
-	},
-	{
-		label: "PHP",
-		value: "4 Years",
-	},
-	{
-		label: "Graphic Design",
-		value: "8 Years",
-	},
-	{
-		label: "Video Production",
-		value: "8 Years",
-	},
+	"React",
+	"NodeJS",
+	"TypeScript",
+	"MySQL",
+	"MongoDB",
+	"JQuery",
+	"PHP",
+	"HTML / CSS",
+	"Wordpress",
+	"Shopify",
+	"Illustrator",
+	"Photoshop",
+	"Premiere Pro",
+	"Cinema 4D",
+	"After Effects",
+	"Spanish"
 ];
 
 ---
@@ -44,33 +34,18 @@ const skills = [
 	<body>
 		<Hero pageTitle={'Home'} reverse={true}>
 			<div slot='side-content'>
-				<SidebarTable heading='Skills' name='skills' items={skills} />
+				<div class="mb-8">
+					<SidebarHeading heading='Skills' />
+					<div class=" columns-2">
+						{
+							skills.map((skill, index) => (
+								<div class="mb-1">{skill}</div>
+							))
+						}
+					</div>
+				</div>
 				<div>
-					<div class="text-emerald-100 text-md mb-2">Certificates</div>
-					<div
-						class="
-							before:absolute
-							before:content-['']
-							before:-top-[2px]
-							before:left-0
-							before:w-[4px]
-							before:h-[4px]
-							before:rounded-full
-							before:bg-white
-							after:absolute
-							after:content-['']
-							after:-top-[2px]
-							after:right-0
-							after:w-[4px]
-							after:h-[4px]
-							after:rounded-full
-							after:bg-white
-							relative
-							w-[100px] 
-							h-[1px] 
-							bg-white 
-							-ml-2"
-					></div>
+					<SidebarHeading heading='Certificates' />
 					<div class="text-white">
 						<Certificates client:load/>
 					</div>

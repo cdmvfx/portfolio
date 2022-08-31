@@ -2,6 +2,8 @@
 import MainHead from "../components/MainHead.astro";
 import Hero from "../components/Hero.astro";
 import { Icon } from 'astro-icon'
+import SidebarHeading from "../components/Elements/SidebarHeading.astro";
+import { Image, Picture } from '@astrojs/image/components';
 
 const {frontmatter} = Astro.props
 
@@ -103,31 +105,7 @@ const stackIcons = {
 	<body>
 		<Hero pageTitle='Project' reverse={true}>
 			<div slot='side-content'>
-				<div class="text-emerald-100 text-md mb-2">Tech Stack</div>
-				<div
-					class="
-						before:absolute
-						before:content-['']
-						before:-top-[2px]
-						before:left-0
-						before:w-[4px]
-						before:h-[4px]
-						before:rounded-full
-						before:bg-white
-						after:absolute
-						after:content-['']
-						after:-top-[2px]
-						after:right-0
-						after:w-[4px]
-						after:h-[4px]
-						after:rounded-full
-						after:bg-white
-						relative
-						w-[100px]
-						h-[1px]
-						bg-white
-						-ml-2"
-				></div>
+				<SidebarHeading heading="Tech Stack" />
 				{
 					frontmatter.stack.map((item: "react" | "jquery" | "php" | "mongodb" | "mysql", index: number) => (
 						<div class={`p-4 text-white flex items-center gap-4 ${index !== (frontmatter.stack.length - 1) ? "border-b" : ""} border-emerald-700`}>
@@ -167,19 +145,22 @@ const stackIcons = {
 					</div>
 					<div class="w-full max-w-lg">
 						{
-							frontmatter.images.map((item: string, index: number) => (
-								<a class='mb-8 block' target="_blank" href={item}>
-									<img src={item} alt={frontmatter.title} class="xl:max-w-lg" />
-									<div class="text-white p-4  bg-[#1c1c1ce0]  w-full ">{frontmatter.captions[index]}</div>
-								</a>
-							))
-						}
-						{
 							frontmatter.video_id && 
 							<div class="mb-4 xl:max-w-lg w-full">
 								<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src={`https://www.youtube.com/embed/${frontmatter.video_id}`} frameborder='0' allowfullscreen></iframe></div>
 								<div class="text-white p-4  bg-[#1c1c1ce0]  w-full ">{frontmatter.video_caption}</div>
 							</div>
+						}
+						{
+							frontmatter.images.map((item: string, index: number) => {
+
+								return (
+									<a class='mb-8 block' target="_blank" href={item}>
+										<img src={item} alt={frontmatter.title} class="xl:max-w-lg" />
+										<div class="text-white p-4  bg-[#1c1c1ce0]  w-full ">{frontmatter.captions[index]}</div>
+									</a>
+								)
+							})
 						}
 					</div>
 				</div>
