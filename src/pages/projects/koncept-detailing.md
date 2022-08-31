@@ -4,8 +4,6 @@ title: Koncept Detailing Website
 client: Koncept Detailing LLC
 view: https://konceptdetailing.com
 code: https://github.com/cdmvfx/konceptdetailing.com
-description: |
-  A collection of microservices running on the UNALTERED website to drive customer engagement, review collection, and more.
 stack:
  - typescript
  - tailwind

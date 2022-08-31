@@ -16,7 +16,7 @@ images: ['/assets/review_collection_form.png', '/assets/review_program.png', '/a
 ---
 
 ## Overview
-UNALTERED Services is a collection of microservices, web applications, and tools developed for various uses by UNALTERED Athletics. Originally, this suite of services was created to be embedded on a live WordPress website, integrated with the Wordpress users MySQL database.
+UNALTERED Services is a collection of microservices, web applications, and tools developed for various uses by UNALTERED Athletics. Originally, this suite of services was created to be embedded on a live Wordpress website, integrated with the Wordpress users MySQL database.
 
 Overtime, the business needs expanded beyond what Wordpress could provide, and the website was moved onto a Shopify storefront. Along with that migration, I handled the conversion of the Wordpress plugin to a Shopify application. The various tools run on the website with JQuery, sending and retrieving data to and from PHP endpoints of the application API, with data being stored in a MongoDB database.
 
