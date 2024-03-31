@@ -1,4 +1,4 @@
-import { MouseEventHandler, useState } from "react";
+import { useState } from "react";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -8,9 +8,11 @@ export default function ContactForm() {
   const [status, setStatus] = useState<
     "idle" | "error" | "loading" | "success"
   >("idle");
-  const [error, setError] = useState("Something went wrong. Please try again.");
+  const [error, setError] = useState(
+    "Something went wrong. Please try again."
+  );
 
-  const handleSubmit = (e: MouseEventHandler) => {
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     setStatus("loading");
 
     fetch(
@@ -79,8 +81,7 @@ export default function ContactForm() {
           <button
             type="button"
             onClick={handleSubmit}
-            className="btn mr-4 w-full tracking-widest text-sm text-white bg-emerald-600 outline outline-1 outline-emerald-400 outline-offset-1 px-2 py-2 inline-block transition hover:bg-emerald-500"
-          >
+            className="btn mr-4 w-full tracking-widest text-sm text-white bg-emerald-600 outline outline-1 outline-emerald-400 outline-offset-1 px-2 py-2 inline-block transition hover:bg-emerald-500">
             Send message
           </button>
         </div>
@@ -89,8 +90,7 @@ export default function ContactForm() {
         <div>
           <button
             type="button"
-            className=" hover:cursor-default btn mr-4 w-full tracking-widest text-sm text-white bg-neutral-600 outline outline-1 outline-neutral-400 outline-offset-1 px-2 py-2 inline-block transition"
-          >
+            className=" hover:cursor-default btn mr-4 w-full tracking-widest text-sm text-white bg-neutral-600 outline outline-1 outline-neutral-400 outline-offset-1 px-2 py-2 inline-block transition">
             Sending your message...
           </button>
         </div>
@@ -100,8 +100,7 @@ export default function ContactForm() {
           <button
             type="button"
             onClick={handleSubmit}
-            className="btn mb-4 w-full tracking-widest text-sm text-white bg-emerald-600 outline outline-1 outline-emerald-400 outline-offset-1 px-2 py-2 inline-block transition hover:bg-emerald-500"
-          >
+            className="btn mb-4 w-full tracking-widest text-sm text-white bg-emerald-600 outline outline-1 outline-emerald-400 outline-offset-1 px-2 py-2 inline-block transition hover:bg-emerald-500">
             Send message
           </button>
           <div className="bg-red-500 p-4">{error}</div>
@@ -116,4 +115,4 @@ export default function ContactForm() {
       )}
     </div>
   );
-};
+}

@@ -1,38 +1,32 @@
 ---
-
 const navItems = [
-	{
-		label: "Home",
-		path: "/"
-	},
-	{
-		label: "Projects",
-		path: "/projects"
-	},
-	{
-		label: "Resume",
-		path: "/resume"
-	},
-	{
-		label: "About",
-		path: "/about"
-	},
-	{
-		label: "Contact",
-		path: "/contact"
-	},
+  {
+    label: "Home",
+    path: "/",
+  },
+  {
+    label: "Projects",
+    path: "/projects",
+  },
+  {
+    label: "About",
+    path: "/about",
+  },
+  {
+    label: "Contact",
+    path: "/contact",
+  },
 ];
-
 ---
 
-<div id="nav-items" class=" hidden md:flex flex-col gap-[1px]">
-	{
-		navItems.map((item, index) => (
-			<div class="flex gap-[1px]">
-				<div class="w-[1px] bg-black h-[40px] mr-[1px]" />
-				<a
-					href={item.path}
-					class="
+<div id="nav-items" class="hidden md:flex flex-col gap-[1px]">
+  {
+    navItems.map((item, index) => (
+      <div class="flex gap-[1px]">
+        <div class="w-[1px] bg-black h-[40px] mr-[1px]" />
+        <a
+          href={item.path}
+          class="
 							before:absolute
 							before:content-['']
 							before:bg-gradient-to-r
@@ -58,11 +52,10 @@ const navItems = [
 							to-transparent
 							w-full
 							px-4
-							py-2"
-				>
-					<span class="text-white z-50">{item.label}</span>
-				</a>
-			</div>
-		))
-	}
+							py-2">
+          <span class="text-white z-50">{item.label}</span>
+        </a>
+      </div>
+    ))
+  }
 </div>

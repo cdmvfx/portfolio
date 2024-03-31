@@ -32,17 +32,17 @@ video_captions:
   ]
 ---
 
-## Overview:
+## Overview
 
 At UNALTERED Athletics, I was entrusted with the responsibility of overseeing the design and development of all creative elements for our products. This comprehensive role encompassed various aspects such as website design, product labels and packaging, as well as product images and videos for showcasing on marketplaces.
 
-## Design Process:
+## Design Process
 
 Given that each product's objective differed, I adopted a tailored design approach to suit its unique purpose. With Amazon as our primary sales channel, our foremost focus was to establish a distinct identity amidst a vast array of competitors. Customers are often overwhelmed by numerous options for almost every search term, making it crucial for our products to truly stand out.
 
 To create bold, relevant, and visually appealing designs that resonated with customers' searches, we conducted extensive surveys at every stage of the design process. This involved experimenting with various elements, including font size, vector graphics, colors, and layout, enabling us to ascertain the most effective designs that would drive sales conversions.
 
-## Impact:
+## Impact
 
 As a result of our collective team efforts, the UNALTERED supplement line has successfully achieved a dominant position in Amazon's rankings for several high-volume, highly competitive search phrases, such as "belly fat burner" and "testosterone booster".
 
